@@ -11,13 +11,27 @@ public class UserService {
 
 		User[] userList = userDao.findAll();
 
-		for (int i = 1; i < userList.length; i++) {
-			
-			System.out.println(userList[i]);
+//		for (int i = 1; i < userList.length; i++) {
 
-		}
+			System.out.println(userList[0]);
+
+//		}
 		return userList;
 
 	}
-
+	
+	public void create() {
+		
+		User createUser = new User();
+		createUser.setId(868686);
+		createUser.setFirstName("Mathi");
+		createUser.setLastName("Vanan");
+		createUser.setEmailId("mathizan16@gmail.com");
+		createUser.setPassword("Njcat#10van");
+		createUser.setActive(true);
+		
+		UserDAO userDAO = new UserDAO();
+		userDAO.create(createUser);
+		
+	}
 }
