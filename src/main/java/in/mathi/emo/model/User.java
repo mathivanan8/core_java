@@ -7,7 +7,7 @@ public class User {
 	String emailId;
 	String password;
 	long id;
-	boolean isActive;
+	boolean isActive = true;
 	
 	public String fullName() {
 		

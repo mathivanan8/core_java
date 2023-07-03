@@ -2,6 +2,7 @@ package in.mathi.emo.service;
 
 import in.mathi.emo.dao.UserDAO;
 import in.mathi.emo.model.User;
+import in.mathi.emo.validation.UserValidator;
 
 public class UserService {
 
@@ -11,27 +12,36 @@ public class UserService {
 
 		User[] userList = userDao.findAll();
 
-//		for (int i = 1; i < userList.length; i++) {
+		for (int i = 0; i < userList.length; i++) {
 
-			System.out.println(userList[0]);
+			System.out.println(userList[i]);
 
-//		}
+		}
 		return userList;
 
 	}
 	
-	public void create() {
+	public void create(User createUser) throws Exception{
 		
-		User createUser = new User();
-		createUser.setId(868686);
-		createUser.setFirstName("Mathi");
-		createUser.setLastName("Vanan");
-		createUser.setEmailId("mathizan16@gmail.com");
-		createUser.setPassword("Njcat#10van");
-		createUser.setActive(true);
-		
+		UserValidator.Validate(createUser);
 		UserDAO userDAO = new UserDAO();
 		userDAO.create(createUser);
 		
+	}
+	
+	public void update() {
+	 
+		User updateUser = new User();
+		
+		UserDAO userDao = new UserDAO();
+		userDao.update(677 , updateUser);
+	}
+	
+	public void findById() {
+		 
+		User updateUser = new User();
+		
+		UserDAO userDao = new UserDAO();
+		userDao.update(677 , updateUser);
 	}
 }
