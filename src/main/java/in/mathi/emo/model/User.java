@@ -61,5 +61,8 @@ public class User {
 		this.isActive = isActive;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "User [firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId + ", password=" + password + ", id=" + id + ", isActive=" + isActive;
+	}
 }
