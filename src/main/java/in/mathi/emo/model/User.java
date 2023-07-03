@@ -10,7 +10,6 @@ public class User {
 	boolean isActive = true;
 	
 	public String fullName() {
-		
 		return firstName.concat(" ").concat(lastName);
 	}
 	
@@ -63,10 +62,4 @@ public class User {
 	}
 
 	
-	@Override
-	public String toString() {
-		return "User [firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId + ", password="
-				+ password + ", id=" + id + ", isActive=" + isActive + "]";
-	}
-
 }
