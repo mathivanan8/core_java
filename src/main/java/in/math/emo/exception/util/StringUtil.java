@@ -1,7 +1,5 @@
 package in.math.emo.exception.util;
 
-import java.time.format.DateTimeFormatter;
-
 import in.mathi.emo.exception.ValidationException;
 
 public class StringUtil {
@@ -28,7 +26,4 @@ public class StringUtil {
 		return false;
 
 	}
-	 public static DateTimeFormatter getDateTimeFormatter() {
-	        return DateTimeFormatter.ofPattern("dd/MM/yy");
-	    }
 }

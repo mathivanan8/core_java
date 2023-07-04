@@ -27,7 +27,7 @@ public class App {
 
 			Task createTask = new Task();
 			createTask.setName("Update");
-			createTask.setDueDate("12/12/2013");
+			createTask.setDueDate("12-12-23");
 			createTask.setId(746);
 			createTask.setActive(true);
 

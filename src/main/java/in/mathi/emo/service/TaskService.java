@@ -1,6 +1,9 @@
 package in.mathi.emo.service;
 
+import java.time.format.DateTimeParseException;
+
 import in.mathi.emo.dao.TaskDAO;
+import in.mathi.emo.exception.ValidationException;
 import in.mathi.emo.model.Task;
 import in.mathi.emo.validation.TaskValidator;
 
@@ -22,6 +25,12 @@ public class TaskService {
 	}
 	
 	public void create(Task createTask) throws Exception{
+		
+		try {
+            TaskValidator.Validate(createTask);
+        } catch (DateTimeParseException e) {
+            throw new ValidationException("Invalid date format. Expected format: dd-MM-yy");
+        }
 		
 		TaskValidator.Validate(createTask);
 		TaskDAO TaskDAO = new TaskDAO();

@@ -18,7 +18,7 @@ public class TestCreateTask {
 
 		Task createTask = new Task();
 		createTask.setName("Update");
-		createTask.setDueDate("12/12/23");
+		createTask.setDueDate("12-12-23");
 		createTask.setId(746);
 		createTask.setActive(true);
 
@@ -54,7 +54,7 @@ public class TestCreateTask {
 		
 		Task createTask = new Task();
 		createTask.setName(null);
-		createTask.setDueDate("12/12/23");
+		createTask.setDueDate("12-12-23");
 		createTask.setId(746);
 		createTask.setActive(true);
 		
@@ -77,7 +77,7 @@ public class TestCreateTask {
 		
 		Task createTask = new Task();
 		createTask.setName("");
-		createTask.setDueDate("12/12/23");
+		createTask.setDueDate("12-12-23");
 		createTask.setId(746);
 		createTask.setActive(true);
 		
@@ -139,5 +139,46 @@ public class TestCreateTask {
 			assertTrue(expectedMessage.equals(receivedMessage));
 
 	}
+	@Test
+	public void testCreateTaskWithDueDatePassedDate() {
+
+		TaskService Taskservice = new TaskService();
+		
+		Task createTask = new Task();
+		createTask.setName("Update");
+		createTask.setDueDate("12-12-22");
+		createTask.setId(746);
+		createTask.setActive(true);
+		
+		Exception exception = assertThrows(ValidationException.class,() -> {
+
+			Taskservice.create(createTask);
+
+		});
+		
+			String expectedMessage = "Due date should be in the future";
+			String receivedMessage = exception.getMessage();
+			
+			assertTrue(expectedMessage.equals(receivedMessage));
+
+	}
+	@Test
+	public void testCreateUserWithDueDateParseDate() {
+    	TaskService taskService = new TaskService();
+    	Task newTask = new Task();
+ 		newTask.setId(1);
+ 		newTask.setDueDate("23/07/23"); //Date only dd-MM-yy
+ 		newTask.setName("Practice");
+ 		newTask.setActive(true);
+		
+		Exception exception = assertThrows(Exception.class,()->{
+			taskService.create(newTask);
+		});
+		String expectedMessage = "Invalid date format. Expected format: dd-MM-yy";
+		String actualMessage = exception.getMessage();
+		
+		assertTrue(expectedMessage.equals(actualMessage));
+	}
+	
 
 }
