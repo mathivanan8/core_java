@@ -1,5 +1,7 @@
 package in.math.emo.exception.util;
 
+import java.time.format.DateTimeFormatter;
+
 import in.mathi.emo.exception.ValidationException;
 
 public class StringUtil {
@@ -8,7 +10,6 @@ public class StringUtil {
 		if (input == null || "".equals(input.trim())) {
 			throw new ValidationException(inputType.concat(" Cannot be null or Empty"));
 		}
-
 	}
 
 	public static boolean isValid(String input) {
@@ -27,4 +28,7 @@ public class StringUtil {
 		return false;
 
 	}
+	 public static DateTimeFormatter getDateTimeFormatter() {
+	        return DateTimeFormatter.ofPattern("dd/MM/yy");
+	    }
 }

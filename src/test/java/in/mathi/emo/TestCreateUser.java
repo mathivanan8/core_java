@@ -34,7 +34,7 @@ public class TestCreateUser {
 	}
 
 	@Test
-	public void testCreateUserWithInavlideInput() {
+	public void testCreateUserWithInvalideInput() {
 
 		UserService userservice = new UserService();
 		

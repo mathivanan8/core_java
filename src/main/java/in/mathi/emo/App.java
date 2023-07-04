@@ -1,6 +1,8 @@
 package in.mathi.emo;
 
+import in.mathi.emo.model.Task;
 import in.mathi.emo.model.User;
+import in.mathi.emo.service.TaskService;
 import in.mathi.emo.service.UserService;
 
 public class App {
@@ -19,9 +21,19 @@ public class App {
 			createUser.setActive(true);
 
 			userService.create(createUser);
-
-//		userService.update();
 			userService.getAll();
+			
+			TaskService TaskService = new TaskService();
+
+			Task createTask = new Task();
+			createTask.setName("Update");
+			createTask.setDueDate("12/12/2013");
+			createTask.setId(746);
+			createTask.setActive(true);
+
+			TaskService.create(createTask);
+			TaskService.getAll();
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

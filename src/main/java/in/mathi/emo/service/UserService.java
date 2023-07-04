@@ -37,6 +37,11 @@ public class UserService {
 		userDao.update(677 , updateUser);
 	}
 	
+	public void delete(int taskId) {
+		UserDAO userDao = new UserDAO();
+		userDao.delete(1);
+ 	}
+	
 	public void findById() {
 		 
 		User updateUser = new User();
