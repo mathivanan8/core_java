@@ -1,52 +1,59 @@
 package in.mathi.emo.service;
 
+import java.util.List;
+
 import in.mathi.emo.dao.UserDAO;
+import in.mathi.emo.exception.ValidationException;
 import in.mathi.emo.model.User;
 import in.mathi.emo.validation.UserValidator;
 
 public class UserService {
+	UserDAO userdao = new UserDAO();
 
-	public User[] getAll() {
+	public User create(User user) throws Exception {
 
-		UserDAO userDao = new UserDAO();
+		UserValidator.validate(user);
 
-		User[] userList = userDao.findAll();
-
-		for (int i = 0; i < userList.length; i++) {
-
-			System.out.println(userList[i]);
-
-		}
-		return userList;
+		userdao.create(user);
+		return user;
 
 	}
-	
-	public void create(User createUser) throws Exception{
-		
-		UserValidator.Validate(createUser);
-		UserDAO userDAO = new UserDAO();
-		userDAO.create(createUser);
-		
+
+	public int count() {
+		return userdao.count();
+
 	}
-	
-	public void update() {
-	 
-		User updateUser = new User();
-		
-		UserDAO userDao = new UserDAO();
-		userDao.update(677 , updateUser);
+
+	public void update(int newId, User newUser) throws ValidationException {
+
+		UserValidator.validate(newUser);
+
+		userdao.update(newId, newUser);
+
 	}
-	
-	public void delete(int taskId) {
-		UserDAO userDao = new UserDAO();
-		userDao.delete(1);
- 	}
-	
-	public void findById() {
-		 
-		User updateUser = new User();
-		
-		UserDAO userDao = new UserDAO();
-		userDao.update(677 , updateUser);
+
+	public void delete(int Id) {
+
+		userdao.delete(Id);
+
 	}
+
+	public User findById(int newId) {
+
+		return userdao.findById(newId);
+
+	}
+
+	public void findByEmail(String Email) {
+
+		userdao.findByEmail(Email);
+
+	}
+
+	public List<User> getAll() {
+
+		return userdao.findAll();
+
+	}
+
 }

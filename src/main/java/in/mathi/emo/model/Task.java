@@ -1,47 +1,19 @@
 package in.mathi.emo.model;
 
-public class Task {
-	
-	String name;
-	String dueDate;
-	boolean isActive = true;
-	long id;
-	
-	public String getName() {
-		return name;
-	}
+import java.time.LocalDate;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+public class Task extends TaskEntity {
 
-	public String getDueDate() {
-		return dueDate;
-	}
-
-	public void setDueDate(String dueDate) {
+	public Task(int taskID, String taskName, LocalDate dueDate, boolean isActive) {
+		super();
+		this.taskID = taskID;
+		this.taskName = taskName;
 		this.dueDate = dueDate;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public boolean isActive() {
-		return isActive;
-	}
-
-	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 
-	@Override
-	public String toString() {
-		return "Task [name=" + name + ", dueDate=" + dueDate + ", isActive=" + isActive + ", id=" + id + "]";
+	public Task() {
+
 	}
 
 }

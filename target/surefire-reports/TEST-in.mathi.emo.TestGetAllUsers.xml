@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.emo.emo.TestCreateUser" time="0.083" tests="4" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.mathi.emo.TestGetAllUsers" time="0.833" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\software\Mathivanan_Java\eclipse_IDE_workspace\emo\target\test-classes;C:\software\Mathivanan_Java\eclipse_IDE_workspace\emo\target\classes;C:\Users\MathivananPachiyappa\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;"/>
+    <property name="java.class.path" value="C:\software\Mathivanan_Java\eclipse_IDE_workspace\emo\target\test-classes;C:\software\Mathivanan_Java\eclipse_IDE_workspace\emo\target\classes;C:\Users\MathivananPachiyappa\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\MathivananPachiyappa\.m2\repository\mysql\mysql-connector-java\8.0.28\mysql-connector-java-8.0.28.jar;C:\Users\MathivananPachiyappa\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;C:\Users\MathivananPachiyappa\.m2\repository\com\fssa\corejava\template\1.0.0\template-1.0.0.jar;C:\Users\MathivananPachiyappa\.m2\repository\io\github\cdimascio\java-dotenv\5.2.2\java-dotenv-5.2.2.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.4.0\kotlin-stdlib-1.4.0.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.4.0\kotlin-stdlib-common-1.4.0.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="C:\software\Mathivanan_Java\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.6.v20230204-1729\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\MATHIV~1\AppData\Local\Temp\surefire1141933248897452770\surefirebooter4109510984264576544.jar C:\Users\MathivananPachiyappa\AppData\Local\Temp\surefire1141933248897452770 2023-07-03T10-52-03_255-jvmRun1 surefire650962253557390114tmp surefire_018179624791641731583tmp"/>
+    <property name="sun.java.command" value="C:\Users\MATHIV~1\AppData\Local\Temp\surefire2872092749325496244\surefirebooter3023727321822576880.jar C:\Users\MathivananPachiyappa\AppData\Local\Temp\surefire2872092749325496244 2023-07-25T12-07-26_002-jvmRun1 surefire7195756895444555378tmp surefire_05888978522281369698tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\software\Mathivanan_Java\eclipse_IDE_workspace\emo\target\test-classes;C:\software\Mathivanan_Java\eclipse_IDE_workspace\emo\target\classes;C:\Users\MathivananPachiyappa\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;"/>
+    <property name="surefire.test.class.path" value="C:\software\Mathivanan_Java\eclipse_IDE_workspace\emo\target\test-classes;C:\software\Mathivanan_Java\eclipse_IDE_workspace\emo\target\classes;C:\Users\MathivananPachiyappa\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\MathivananPachiyappa\.m2\repository\mysql\mysql-connector-java\8.0.28\mysql-connector-java-8.0.28.jar;C:\Users\MathivananPachiyappa\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;C:\Users\MathivananPachiyappa\.m2\repository\com\fssa\corejava\template\1.0.0\template-1.0.0.jar;C:\Users\MathivananPachiyappa\.m2\repository\io\github\cdimascio\java-dotenv\5.2.2\java-dotenv-5.2.2.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.4.0\kotlin-stdlib-1.4.0.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.4.0\kotlin-stdlib-common-1.4.0.jar;C:\Users\MathivananPachiyappa\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\MathivananPachiyappa"/>
     <property name="user.language" value="en"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\MATHIV~1\AppData\Local\Temp\surefire1141933248897452770\surefirebooter4109510984264576544.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\MATHIV~1\AppData\Local\Temp\surefire2872092749325496244\surefirebooter3023727321822576880.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.6+10"/>
@@ -58,16 +58,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="in.emo.emo.TestCreateUser.testCreateUserWithEmailNull" classname="in.emo.emo.TestCreateUser" time="0.065">
-    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
-	at in.emo.emo.TestCreateUser.testCreateUserWithEmailNull(TestCreateUser.java:82)
-]]></failure>
-  </testcase>
-  <testcase name="in.emo.emo.TestCreateUser.testCreateUserWithEmailEmpty" classname="in.emo.emo.TestCreateUser" time="0"/>
-  <testcase name="in.emo.emo.TestCreateUser.testCreateUserWithInavlideInput" classname="in.emo.emo.TestCreateUser" time="0"/>
-  <testcase name="in.emo.emo.TestCreateUser.testCreateUserWithValidData" classname="in.emo.emo.TestCreateUser" time="0.01"/>
+  <testcase name="in.mathi.emo.TestGetAllUsers.testGetAllUsers" classname="in.mathi.emo.TestGetAllUsers" time="0.833"/>
 </testsuite>

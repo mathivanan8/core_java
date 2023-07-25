@@ -1,0 +1,19 @@
+-------------------------------------------------------------------------------
+Test set: in.mathi.emo.TestCreateTask
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.112 s <<< FAILURE! - in in.mathi.emo.TestCreateTask
+in.mathi.emo.TestCreateTask.testCreateTaskWithValidData()  Time elapsed: 0.097 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: in.mathi.emo.exception.ValidationException: Due Date can not be in the Past
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.mathi.emo.TestCreateTask.testCreateTaskWithValidData(TestCreateTask.java:31)
+Caused by: in.mathi.emo.exception.ValidationException: Due Date can not be in the Past
+	at in.math.emo.exception.util.StringUtil.rejectIfInvalidDate(StringUtil.java:18)
+	at in.mathi.emo.validation.TaskValidator.validate(TaskValidator.java:16)
+	at in.mathi.emo.service.TaskService.create(TaskService.java:29)
+	at in.mathi.emo.TestCreateTask.lambda$testCreateTaskWithValidData$0(TestCreateTask.java:32)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
+

@@ -1,6 +1,8 @@
 package in.mathi.emo.service;
 
-import java.time.format.DateTimeParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import in.mathi.emo.dao.TaskDAO;
 import in.mathi.emo.exception.ValidationException;
@@ -8,55 +10,59 @@ import in.mathi.emo.model.Task;
 import in.mathi.emo.validation.TaskValidator;
 
 public class TaskService {
-	
-	public Task[] getAll() {
+	TaskDAO taskDAO = new TaskDAO();
 
-		TaskDAO TaskDao = new TaskDAO();
+	public static LocalDate convertToDate(String dateString) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-		Task[] TaskList = TaskDao.findAll();
-
-		for (int i = 0; i < TaskList.length; i++) {
-
-			System.out.println(TaskList[i]);
-
+		try {
+			LocalDate localDate = LocalDate.parse(dateString, formatter);
+			return localDate;
+		} catch (Exception e) {
+			System.out.println("Invalid date format!");
+			return null;
 		}
+	}
+
+	public void create(Task task) throws Exception {
+
+		TaskValidator.validate(task);
+
+		taskDAO.create(task);
+
+	}
+
+	public void update(int id, Task updatedTask) throws ValidationException {
+
+		TaskValidator.validate(updatedTask);
+
+		taskDAO.update(id, updatedTask);
+
+	}
+
+	public void delete(int id) {
+
+		taskDAO.delete(id);
+
+	}
+
+	public void findById(int id) {
+
+		taskDAO.findById(id);
+
+	}
+
+	public int count() {
+		return taskDAO.count();
+
+	}
+
+	public List<Task> getAll() {
+
+		List<Task> TaskList = taskDAO.findAll();
+
 		return TaskList;
 
-	}
-	
-	public void create(Task createTask) throws Exception{
-		
-		try {
-            TaskValidator.Validate(createTask);
-        } catch (DateTimeParseException e) {
-            throw new ValidationException("Invalid date format. Expected format: dd-MM-yy");
-        }
-		
-		TaskValidator.Validate(createTask);
-		TaskDAO TaskDAO = new TaskDAO();
-		TaskDAO.create(createTask);
-		
-	}
-	
-	public void update() {
-	 
-		Task updateTask = new Task();
-		
-		TaskDAO TaskDao = new TaskDAO();
-		TaskDao.update(677 , updateTask);
-	}
-	
-	public void delete(int taskId) {
- 		TaskDAO TaskDao = new TaskDAO();
- 		TaskDao.delete(1);
- 	}
-	
-	public void findById() {
-		 
-		Task updateTask = new Task();
-		
-		TaskDAO TaskDao = new TaskDAO();
-		TaskDao.update(677 , updateTask);
 	}
 
 }

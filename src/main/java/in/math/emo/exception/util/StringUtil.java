@@ -1,29 +1,42 @@
 package in.math.emo.exception.util;
 
+import java.time.LocalDate;
+
 import in.mathi.emo.exception.ValidationException;
 
 public class StringUtil {
-	public static void rejectIfInvalidString(String input, String inputType) throws ValidationException {
 
+	public static void rejectIfInvalidString(String input, String inputName) throws ValidationException {
 		if (input == null || "".equals(input.trim())) {
-			throw new ValidationException(inputType.concat(" Cannot be null or Empty"));
+			throw new ValidationException(inputName.concat(" cannot be Null or Empty"));
 		}
 	}
 
-	public static boolean isValid(String input) {
+	public static void rejectIfInvalidDate(LocalDate date, String inputName) throws ValidationException {
+		LocalDate currentDate = LocalDate.now();
+		if (date.isBefore(currentDate)) {
+			throw new ValidationException(inputName.concat(" can not be in the Past"));
+		}
+	}
 
-		if (input == null || "".equals(input.trim())) {
+	public static boolean isValidString(String newString) {
+
+		if (newString == null || "".equals(newString.trim())) {
+
 			return false;
 		}
 		return true;
+
 	}
 
-	public static boolean isInvalid(String input) {
+	public static boolean isInvalidString(String newString) {
 
-		if (input == null || "".equals(input.trim())) {
+		if (!isValidString(newString)) {
+
 			return true;
 		}
 		return false;
 
 	}
+
 }

@@ -1,5 +1,7 @@
 package in.mathi.emo;
 
+import java.time.LocalDate;
+
 import in.mathi.emo.model.Task;
 import in.mathi.emo.model.User;
 import in.mathi.emo.service.TaskService;
@@ -8,36 +10,109 @@ import in.mathi.emo.service.UserService;
 public class App {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+		UserService newService = new UserService();
+
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println("//////////////////////   User   ////////////////////////////////");
+
 		try {
-			UserService userService = new UserService();
+			User newUser = new User(101, "Mathi", "Vanan", "mathi@gmail.com", "MvN@123", true);
+			User newUser1 = new User(102, "Arun", "Kumar", "arun@gmail.com", "Ark@123", true);
+			User newUser2 = new User(103, "Melvin", "Joseph", "melvin@gmail.com", "Njcat10#", true);
 
-			User createUser = new User();
-			createUser.setId(746);
-			createUser.setFirstName("Mathi");
-			createUser.setLastName("Vanan");
-			createUser.setEmailId("mathizan16@gmail.com");
-			createUser.setPassword("Njcat#10van");
-			createUser.setActive(true);
+			// User Creation
+			System.out.print("User Creation   = ");
+			newService.create(newUser);
+			System.out.println(newService.getAll());
 
-			userService.create(createUser);
-			userService.getAll();
-			
-			TaskService TaskService = new TaskService();
+			// Update User
+			System.out.print("User Update   =  ");
+			newService.update(101, newUser1);
+			System.out.println(newService.getAll());
 
-			Task createTask = new Task();
-			createTask.setName("Update");
-			createTask.setDueDate("12-12-23");
-			createTask.setId(746);
-			createTask.setActive(true);
+			// Delete User
+			System.out.print("User Delete   =  ");
+			newService.delete(102);
+			System.out.println(newService.getAll());
 
-			TaskService.create(createTask);
-			TaskService.getAll();
-			
+			// Find By Id
+			System.out.print("User Find By Id   =  ");
+			newService.create(newUser2);
+			newService.findById(103);
+
+			// Find By Email
+			System.out.print("User Find By Email   =  ");
+			newService.findByEmail("amaruthan@apple.com");
+
+			// Get All Method
+			System.out.print("Get All Method  =  ");
+			newService.create(newUser);
+			System.out.println(newService.getAll());
+
+			// Users Count
+			System.out.print("Users Count  =  ");
+			System.out.println(newService.count());
+
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println("//////////////////////   Task   ////////////////////////////////");
+
+		TaskService taskService = new TaskService();
+
+		try {
+			String userInput = "23/07/2023";
+			LocalDate convertedDate = TaskService.convertToDate(userInput);
+			String userInput1 = "25/08/2023";
+			LocalDate convertedDate1 = TaskService.convertToDate(userInput1);
+			String userInput2 = "27/09/2023";
+			LocalDate convertedDate2 = TaskService.convertToDate(userInput2);
+
+			Task newTask1 = new Task(1, "Open the Door", convertedDate, true);
+			Task newTask2 = new Task(2, "Close the Door", convertedDate1, true);
+			Task newTask3 = new Task(3, "Go! Eat Sleep Code :)", convertedDate2, true);
+
+			// Task Creation
+			System.out.print("Task Creation   = ");
+			taskService.create(newTask1);
+			System.out.println(taskService.getAll());
+
+			// Task Update
+			System.out.print("Task Update   =  ");
+			taskService.update(1, newTask2);
+			System.out.println(taskService.getAll());
+
+			// Delete Task
+			System.out.print("Task Delete   =  ");
+			taskService.delete(2);
+			System.out.println(taskService.getAll());
+
+			// Find By Id
+			System.out.print("Task Find By Id   =  ");
+			taskService.create(newTask1);
+			taskService.findById(1);
+
+			// Get all Method
+			System.out.print("Get All Method  =  ");
+			taskService.create(newTask3);
+			System.out.println(taskService.getAll());
+
+			// Task Count
+			System.out.print("Task Count  =  ");
+			System.out.println(taskService.count());
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
 	}
 
 }

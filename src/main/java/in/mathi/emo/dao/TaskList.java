@@ -1,9 +1,11 @@
 package in.mathi.emo.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import in.mathi.emo.model.Task;
 
 public class TaskList {
-	
-	public static Task[] listOfTasks = new Task[10];
 
+	public static List<Task> taskList = new ArrayList<Task>();
 }

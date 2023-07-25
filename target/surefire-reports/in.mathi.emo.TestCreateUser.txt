@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: in.mathi.emo.TestCreateUser
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 3.463 s <<< FAILURE! - in in.mathi.emo.TestCreateUser
+in.mathi.emo.TestCreateUser.testCreateUserWithExistingEmail()  Time elapsed: 0.708 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.RuntimeException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:71)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
+	at in.mathi.emo.TestCreateUser.testCreateUserWithExistingEmail(TestCreateUser.java:173)
+

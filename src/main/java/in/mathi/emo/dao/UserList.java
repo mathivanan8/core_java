@@ -1,9 +1,12 @@
 package in.mathi.emo.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import in.mathi.emo.model.User;
 
 public class UserList {
-	
-	public static User[] listOfUsers = new User[10];
+
+	public static List<User> ListOfUsers = new ArrayList<User>();
 
 }
