@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import in.math.emo.exception.util.ConnectionUtil;
@@ -23,7 +22,7 @@ public class UserDAO implements UserInterface {
 			String query = "INSERT INTO users (first_name, last_name, user_email, user_password) VALUES ( ?, ?, ?, ? );";
 			con = ConnectionUtil.getConnection();
 			ps = con.prepareStatement(query);
-			
+
 			ps.setString(1, user.getFirstname());
 			ps.setString(2, user.getLastname());
 			ps.setString(3, user.getEmail());
@@ -67,48 +66,87 @@ public class UserDAO implements UserInterface {
 		return userMatch;
 	}
 
-	@Override
-	public void delete(int newId) {
-		List<User> userList2 = UserList.ListOfUsers;
-		for (User newUser : userList2) {
-			User user1 = newUser;
-
-			if (user1 == null) {
-				continue;
-			}
-			if (user1.getId() == newId) {
-				user1.setActive(false);
-
-			}
-
-		}
-
-	}
-
-	@Override
 	public int count() {
-		List<User> userList3 = UserList.ListOfUsers;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
 		int count = 0;
-		for (User newUser : userList3) {
-			User user1 = newUser;
-			count++;
+
+		List<User> userList = new ArrayList<User>();
+		try {
+			String query = "SELECT * FROM users Where is_active = 1";
+			con = ConnectionUtil.getConnection();
+			ps = con.prepareStatement(query);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				count++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			throw new RuntimeException(e);
+		} finally {
+			ConnectionUtil.close(con, ps, rs);
 		}
 		return count;
+
 	}
+	
+	@Override
+	public void delete(int newId) {
+	    Connection con = null;
+	    PreparedStatement ps = null;
+
+	    try {
+	        String query = "UPDATE users SET is_active = false WHERE id = ?";
+	        con = ConnectionUtil.getConnection();
+	        ps = con.prepareStatement(query);
+//	        ps.setBoolean(1, false);
+	        ps.setInt(1, newId);
+
+	        int rowsAffected = ps.executeUpdate();
+	        if (rowsAffected > 0) {
+	            System.out.println("User with ID " + newId + " set as inactive.");
+	        } else {
+	            System.out.println("User with ID " + newId + " not found.");
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        System.out.println(e.getMessage());
+	        throw new RuntimeException(e);
+	    } finally {
+	        ConnectionUtil.close(con, ps);
+	    }
+	}
+
 
 	@Override
 	public void update(int id, User newUser) {
-		List<User> userList = UserList.ListOfUsers;
+		Connection con = null;
+		PreparedStatement ps = null;
 
-		Iterator<User> iterator = userList.iterator();
-		while (iterator.hasNext()) {
-			User existingUser = iterator.next();
-			if (existingUser.getId() == id) {
-				iterator.remove();
-				userList.add(newUser);
-				break;
-			}
+		try {
+			String query = "UPDATE users SET first_name = ?,last_name = ? Where id = ?";
+			con = ConnectionUtil.getConnection();
+			ps = con.prepareStatement(query);
+			ps.setString(1, newUser.getFirstname());
+			ps.setString(2, newUser.getLastname());
+			ps.setInt(3, id);
+
+			ps.executeUpdate();
+
+			System.out.println("User Successfully Updated");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			throw new RuntimeException(e);
+		} finally {
+			ConnectionUtil.close(con, ps);
 		}
+
 	}
 
 	public User findById(int userId) throws RuntimeException {

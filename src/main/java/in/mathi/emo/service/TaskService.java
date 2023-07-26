@@ -1,6 +1,9 @@
 package in.mathi.emo.service;
 
+import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -22,6 +25,18 @@ public class TaskService {
 			System.out.println("Invalid date format!");
 			return null;
 		}
+	}
+
+	public static java.util.Date convertDate(LocalDate newDate) {
+		LocalDateTime localDateTime = newDate.atStartOfDay();
+		java.util.Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+		return date;
+	}
+
+	public static LocalDate convertSqlDateToLocalDate(Date sqlDate) {
+		java.sql.Date c = (java.sql.Date) sqlDate;
+		java.util.Date utilDate = new java.util.Date(c.getTime());
+		return utilDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 	}
 
 	public void create(Task task) throws Exception {
@@ -46,9 +61,9 @@ public class TaskService {
 
 	}
 
-	public void findById(int id) {
+	public Task findById(int id) {
 
-		taskDAO.findById(id);
+		return taskDAO.findById(id);
 
 	}
 
@@ -61,6 +76,12 @@ public class TaskService {
 
 		List<Task> TaskList = taskDAO.findAll();
 
+		return TaskList;
+
+	}
+
+	public List<Task> getByDate(LocalDate date) {
+		List<Task> TaskList = taskDAO.findByDate(date);
 		return TaskList;
 
 	}

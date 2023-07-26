@@ -4,10 +4,10 @@ import java.time.LocalDate;
 
 public abstract class TaskEntity implements Comparable<TaskEntity> {
 
-	int taskID;
-	String taskName;
-	LocalDate dueDate;
-	boolean isActive;
+	protected int taskID;
+	protected String taskName;
+	protected LocalDate dueDate;
+	protected boolean isActive;
 
 	public int getTaskID() {
 		return taskID;
@@ -41,7 +41,6 @@ public abstract class TaskEntity implements Comparable<TaskEntity> {
 		this.isActive = isActive;
 	}
 
-	@Override
 	public String toString() {
 		return "Task : Task ID = " + taskID + ", Task Name = " + taskName + ", Due Date = " + dueDate + ", Is Active = "
 				+ isActive;

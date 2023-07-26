@@ -24,11 +24,13 @@ public class UserService {
 
 	}
 
-	public void update(int newId, User newUser) throws ValidationException {
+	public UserDAO update(int newId, User newUser) throws ValidationException {
 
 		UserValidator.validate(newUser);
 
 		userdao.update(newId, newUser);
+		
+		return userdao;
 
 	}
 
